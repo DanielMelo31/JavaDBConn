@@ -1,0 +1,35 @@
+# Archivos de VS Code
+.vscode/
+
+# Archivos compilados de Java
+*.class
+
+# Directorios generados por Maven
+target/
+
+# Configuración de Maven
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Archivos de log y temporales
+*.log
+*.tmp
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de Maven Wrapper
+mvnw
+mvnw.cmd
+
+# Archivos de construcción específicos
+build/
+out/
+
+# Archivos generados por el sistema operativo
+*.swp
+*~
+
+# Access details
+.config.properties
