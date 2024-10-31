@@ -10,15 +10,17 @@ public class Student {
     private String email;
     private Date load_date;
     private Date update_date; 
+
+    public Student(){};
     
-    public Student(String name, String lastname, int age, String email){
+    public Student(String name, String lastname, int age, String email, Date update_date){
         this.name = name;
         this.lastname = lastname;
         this.age = age;
         this.email = email; 
-    
+        this.load_date = new Date(System.currentTimeMillis());
+        this.update_date = update_date;
     }
-
 
     //Getters & Setters
     public int getStudents_id() {
@@ -76,5 +78,13 @@ public class Student {
     public void setUpdate_date(Date update_date) {
         this.update_date = update_date;
     }
+
+    @Override
+    public String toString() {
+        return "Student [students_id=" + students_id + ", name=" + name + ", lastname=" + lastname + ", age=" + age
+                + ", email=" + email + ", load_date=" + load_date + ", update_date=" + update_date + "]";
+    }
+
+   
 
 }
