@@ -3,13 +3,13 @@ package com.java_crud.model;
 import java.sql.Date;
 
 public class Instructor {
-    int instructor_id;
-    String name;
-    String lastname;
-    int age;
-    String email;
-    Date load_date;
-    Date update_date;
+    private int instructor_id;
+    private String name;
+    private String lastname;
+    private int age;
+    private String email;
+    private Date load_date;
+    private Date update_date;
 
 
     public Instructor(String name, String lastname, int age, String email, Date load_date, Date update_date){
