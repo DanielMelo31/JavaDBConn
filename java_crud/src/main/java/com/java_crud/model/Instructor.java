@@ -21,6 +21,8 @@ public class Instructor {
         this.update_date = update_date;
     }
 
+    public Instructor() {}
+
     public int getInstructor_id() {
         return instructor_id;
     }

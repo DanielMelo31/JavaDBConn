@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface Repository<T> {
     List<T> findAll() throws SQLException;
-    T getByID(Integer id) throws SQLException;
+    T getByID(Integer id) throws SQLException, IOException;
     void save(T t) throws SQLException;
     void update(int id, T t) throws SQLException, IOException;
     void delete(Integer id) throws SQLException;
