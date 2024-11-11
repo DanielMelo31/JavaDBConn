@@ -3,9 +3,8 @@ package com.java_crud.main;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import com.java_crud.model.Student;
-import com.java_crud.repository.Repository;
-import com.java_crud.repository.StudentsRepo;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 public class Main {
     public static void main(String[] args) throws SQLException, IOException{
@@ -30,9 +29,16 @@ public class Main {
 
         
         
-        Repository<Student> repo = new StudentsRepo();
+        // Repository<Student> repo = new StudentsRepo();
 
-        repo.findAll().forEach(System.out::println);
+        // repo.findAll().forEach(System.out::println);
+        
+        JFrame frame = new JFrame("My First GUI");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300,300);
+       JButton button1 = new JButton("Press");
+       frame.getContentPane().add(button1);
+       frame.setVisible(true);
         
     }
 }
