@@ -3,8 +3,8 @@ package com.java_crud.main;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
+import com.java_crud.repository.InstructorRepo;
+import com.java_crud.repository.Repository;
 
 public class Main {
     public static void main(String[] args) throws SQLException, IOException{
@@ -33,12 +33,18 @@ public class Main {
 
         // repo.findAll().forEach(System.out::println);
         
-        JFrame frame = new JFrame("My First GUI");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300,300);
-       JButton button1 = new JButton("Press");
-       frame.getContentPane().add(button1);
-       frame.setVisible(true);
+        //     JFrame frame = new JFrame("My First GUI");
+        //     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //     frame.setSize(300,300);
+        //    JButton button1 = new JButton("Press");
+        //    frame.getContentPane().add(button1);
+        //    frame.setVisible(true);
         
+
+        Repository repository = new InstructorRepo();
+
+        // repository.findAll().forEach(System.out::println);
+        System.out.println(repository.getByID(2));
+
     }
 }
