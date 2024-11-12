@@ -16,7 +16,7 @@ public class DBConnection extends IOException{
         
         public static Connection getInstace() throws SQLException, IOException{
             Properties props = new Properties();
-            FileInputStream inputStream = new FileInputStream("config.properties");
+            FileInputStream inputStream = new FileInputStream("java_crud\\config.properties");
             props.load(inputStream);
             inputStream.close();
             
