@@ -2,6 +2,7 @@ package com.java_crud.repository;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,21 +63,61 @@ public class InstructorRepo implements Repository<Instructor>{
     }
 
     @Override
-    public void save(Instructor t) throws SQLException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    public void save(Instructor instructor) throws SQLException {
+        try(
+            PreparedStatement myPreparedStatement = getConnection().prepareCall(
+                "insert into instructor(name, lastname, age, email, load_date, update_date) values (?, ?, ?, ?, ?, ?)"
+            )
+        ) {
+            myPreparedStatement.setString(1, instructor.getName());
+            myPreparedStatement.setString(2, instructor.getLastname());
+            myPreparedStatement.setInt(3, instructor.getAge());
+            myPreparedStatement.setString(4, instructor.getEmail());
+            myPreparedStatement.setDate(5, new Date(System.currentTimeMillis()));
+            myPreparedStatement.setDate(6, new Date(System.currentTimeMillis()));
+
+            myPreparedStatement.executeUpdate();
+            
+        } catch(Exception e) {
+            e.printStackTrace();
+            System.out.println("Error creating a new Instructor");
+        }
     }
 
     @Override
-    public void update(int id, Instructor t) throws SQLException, IOException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    public void update(int id, Instructor instructor) throws SQLException, IOException {
+        try (
+            PreparedStatement myPreparedStatement = getConnection().prepareStatement(
+                "update instructor set name=?, lastname=?, age=?, email=?, update_date=? where instructor_id =" + id);
+        ){
+            myPreparedStatement.setString(1, instructor.getName());
+            myPreparedStatement.setString(2, instructor.getLastname());
+            myPreparedStatement.setInt(3, instructor.getAge());
+            myPreparedStatement.setString(4, instructor.getEmail());
+            myPreparedStatement.setDate(5, new Date(System.currentTimeMillis()));
+
+            myPreparedStatement.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error updating an instructor");
+        }
     }
 
     @Override
     public void delete(Integer id) throws SQLException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        try (
+            PreparedStatement myPreparedStatement = getConnection().prepareStatement(
+                "Delete from instructor where instructor_id = ?"
+            )
+        ) {
+            myPreparedStatement.setInt(1, id);
+            myPreparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error deleting an instructor");
+        }
     }
 
     private Instructor createInstructor(ResultSet resultSet) throws SQLException{

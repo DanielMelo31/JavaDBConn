@@ -12,12 +12,12 @@ public class Instructor {
     private Date update_date;
 
 
-    public Instructor(String name, String lastname, int age, String email, Date load_date, Date update_date){
+    public Instructor(String name, String lastname, int age, String email, Date update_date){
         this.name = name;
         this.lastname = lastname;
         this.age = age;
         this.email = email;
-        this.load_date = load_date;
+        this.load_date = new Date(System.currentTimeMillis());
         this.update_date = update_date;
     }
 

@@ -44,7 +44,13 @@ public class Main {
         Repository repository = new InstructorRepo();
 
         // repository.findAll().forEach(System.out::println);
-        System.out.println(repository.getByID(2));
+        // System.out.println(repository.getByID(2));
 
+        // Instructor instructor = new Instructor(
+        //     "James", "Rodriguez", 32, "el10col@gmail.com", new Date(System.currentTimeMillis()));
+
+        // repository.save(instructor);
+
+        // repository.update(12, instructor);
     }
 }
